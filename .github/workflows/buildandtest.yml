@@ -18,10 +18,10 @@ jobs:
       run: dotnet restore ./Application
 
     - name: Build
-      run: dotnet build
+      run: dotnet build ./Application
 
     - name: Test
-      run: dotnet test
+      run: dotnet test ./Application
 
     - name: Publish
       run: dotnet publish -c Release -o ./publish
