@@ -12,7 +12,7 @@ jobs:
     - name: Restore NuGet packages
       run: dotnet restore ./Application
     - name: Build solution
-      run: msbuild /p:Configuration=Release /p:Platform="Any CPU" /m /nologo /clp:Summary /t:Build /path/to/SampleWebApplication.sln
+      run: msbuild /p:Configuration=Release /p:Platform="Any CPU" /m /nologo /clp:Summary /t:Build ./SampleWebApplication.sln
     - name: Publish application
       run: msbuild /p:Configuration=Release /p:Platform="Any CPU" /m /nologo /clp:Summary /t:Publish /path/to/SampleWebApplication.csproj
     - name: Deploy artifacts
