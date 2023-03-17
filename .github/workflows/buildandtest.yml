@@ -37,7 +37,7 @@ jobs:
       run: dotnet restore ./Application
 
     - name: Build
-      run: dotnet build ./Application
+      run: dotnet build --configuration Release
 
     - name: Test
       run: dotnet test ./Application
