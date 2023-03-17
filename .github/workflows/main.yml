@@ -1,0 +1,22 @@
+name: ASP.NET MVC CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup MSBuild path
+      uses: microsoft/setup-msbuild@v1.0.3
+    - name: Restore NuGet packages
+      run: nuget.exe restore /path/to/SampleWebApplication/packages.config -PackagesDirectory packages -Source https://api.nuget.org/v3/index.json -NonInteractive
+    - name: Build solution
+      run: msbuild /p:Configuration=Release /p:Platform="Any CPU" /m /nologo /clp:Summary /t:Build /path/to/SampleWebApplication.sln
+    - name: Publish application
+      run: msbuild /p:Configuration=Release /p:Platform="Any CPU" /m /nologo /clp:Summary /t:Publish /path/to/SampleWebApplication.csproj
+    - name: Deploy artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: SampleWebApplication
+        path: /path/to/SampleWebApplication/bin/Release/PublishOutput
