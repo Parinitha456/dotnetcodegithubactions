@@ -18,7 +18,7 @@ jobs:
       run: dotnet restore ./Application
 
     - name: Build
-      run: dotnet build ./Application
+      run: dotnet build .
 
     - name: Test
       run: dotnet test ./Application
