@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v2
       
     - name: Restore NuGet packages
-      run: dotnet restore ./
+      run: dotnet restore ./Application
 
     - name: Build
       run: dotnet build
