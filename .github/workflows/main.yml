@@ -10,7 +10,7 @@ jobs:
     - name: Setup MSBuild path
       uses: microsoft/setup-msbuild@v1.0.3
     - name: Restore NuGet packages
-      run: dotnet restore ./Application
+      run: nuget restore SampleWebApplication.sln
     - name: Build solution
       run: msbuild /p:Configuration=Release /p:Platform="Any CPU" /m /nologo /clp:Summary /t:Build ./Application
     - name: Publish application
