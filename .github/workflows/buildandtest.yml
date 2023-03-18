@@ -25,7 +25,7 @@ jobs:
           dotnet-version: '7.0.201'
           
       - name: Build application
-        run: dotnet build ./Application -c Release
+        run: dotnet build
         
       - name: Build
         run: dotnet build ./Application --configuration Release --no-restore
