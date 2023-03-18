@@ -23,6 +23,9 @@ jobs:
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.201'
+          
+      - name: Build application
+        run: dotnet build ./Application -c Release
         
       - name: Build
         run: dotnet build ./Application --configuration Release --no-restore
